@@ -25,17 +25,6 @@ if errorlevel 1 (
     git commit -m "Upload automatico dei file - %timestamp%"
 )
 
-powershell -ExecutionPolicy Bypass -Command ^
-(Get-Content 'D:\GitHub\ANDI_PLM\ANDI_PLM_Prima_Nota_INCARICHI.html') `
--replace '<head>', '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">' `
--replace '</head>', '<style>
-body { font-family: Arial, sans-serif; }
-table { width: 100%; border-collapse: collapse; }
-td, th { padding: 6px; font-size: 14px; white-space: nowrap; }
-div { overflow-x: auto; }
-</style></head>' |
-Set-Content 'D:\GitHub\ANDI_PLM\ANDI_PLM_Prima_Nota_INCARICHI.html' -Encoding UTF8
-
 git push origin main
 
 :end
